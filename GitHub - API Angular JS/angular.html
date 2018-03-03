@@ -1,0 +1,41 @@
+<!--
+    Angular JS
+
+    O ng-model, vai guardar o valor que inseri-mos na txtbox
+    O ng-bind vai mostrar o que o ng-model guardou
+    Tem de estar sempre de uma div ou algo que tenha ng-app
+    {{}} irá chamar algo que esteja no ng-model
+    ng-init inicia variavel
+    ng-repeat é tipo o for
+    ng-show="myForm.myAddress.$error.number", vai mostrar algo
+    --------
+    Constroi um template
+<script>
+    var app = angular.module("myApp", []);
+    app.directive("app", function() {
+    return {
+        template : "<h1>Made by a directive!</h1>"
+    };
+
+    });
+</script>
+{   {myForm.myAddress.$valid}} -- esta como a variavel
+    {{myForm.myAddress.$dirty}} -- foi alterado
+    {{myForm.myAddress.$touched}} -- foi mexido
+
+    --------
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+
+<body>
+
+        <form ng-app="" name="myForm" ng-init="myText = 'x@x.x'">
+                <input type="email" name="email" ng-model="myText">
+                <p ng-show="myForm.email.$dirty">Mudou</p>
+        </form>
+
+</body>
+</html>

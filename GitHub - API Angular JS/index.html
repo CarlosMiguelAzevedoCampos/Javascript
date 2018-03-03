@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GitHub API - Carlos Campos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <h1>My GitHub API Reader</h1>
+    <p>In this page I will show some information that the GitHub API returns. In this project i will use AngularJs!</p>
+  </div>
+
+  <div class="container" ng-app="indexPage">
+    <div class="row">
+      <div class="col-sm-6" ng-controller="myProfile">
+        <div ng-if="status">
+          <h3>
+            <img src="{{image}}" class="img-circle" id="profile_img"> Profile</h3>
+          <h4>My name is {{names}},</h4>
+          <p>And i'm from {{location}} !</p>
+          <p>{{bio}}.</p>
+        </div>
+        <div ng-if="!status">
+          <h3>Ups.., try again later please.</h3>
+        </div>
+      </div>
+      <div class="col-sm-6" ng-controller="myReposDescription">
+        <div ng-if="status">
+          <h3>Some Repos created by me..</h3>
+          <div ng-repeat="repo in repos">
+            <p>
+              <a href="repos.html#!?reponame={{repo.name}}">{{repo.name}}</a> -
+              <i ng-if="repo.description">{{repo.description}}</i>
+              <i ng-if="!repo.description">No description available.</i>
+            </p>
+          </div>
+          <div ng-if="!status">
+            <h3>Ups.., try again later please.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>

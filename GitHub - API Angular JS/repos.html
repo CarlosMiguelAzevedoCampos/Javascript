@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GitHub API - Carlos Campos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/repos.js"></script>
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <h1>My GitHub API Reader</h1>
+    <p>In this page I will show some information that the GitHub API returns. In this project i will use AngularJs!</p>
+  </div>
+
+  <div class="container" ng-app="reposPage">
+    <div class="row">
+      <div class="col-sm-12 text-center" ng-controller="repoName">
+        <div ng-if="status">
+          <p>
+            <strong>Hello!, my Repo name is,</strong>
+            <i>{{name}}.</i>
+          </p>
+          <p>
+            <strong>And i have a small description,</strong>
+          </p>
+          <p>
+            <i>{{description}}.</i>
+          </p>
+          <p>
+            <strong>Well, my creator, pushed some code files coded whit,</strong>
+            <i>{{language}}.</i>
+          </p>
+          <p>
+            <strong>My owner created me at </strong>
+            <i>{{created}}.</i>
+            <strong>and my last update was made at, </strong>
+            <i>{{updated}}.</i>
+          </p>
+          <p>
+            <a href="reposfiles.html#!?reponame={{name}}">
+              <strong>My files, Click me!</strong>
+            </a>
+          </p>
+        </div>
+        <div ng-if="!status">
+          <h3>Ups.., try again later please.</h3>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

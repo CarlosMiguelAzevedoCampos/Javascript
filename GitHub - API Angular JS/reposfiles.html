@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GitHub API - Carlos Campos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/repofiles.js"></script>
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <h1>My GitHub API Reader</h1>
+    <p>In this page I will show some information that the GitHub API returns. In this project i will use AngularJs!</p>
+  </div>
+
+  <div class="container" ng-app="reposPage">
+    <div class="row">
+      <div class="col-sm-12 text-center" ng-controller="repoName">
+        <div ng-if="status">
+          <div ng-if="data">
+            <h3>Well.., here you can find the files from this Repo.</h3>
+            <div ng-repeat="info in response">
+              <br>
+              <!--The type of the file is dir or file?-->
+              <div ng-If="info.type == 'dir'">
+                <a href="{{info.html_url}}">
+                  <span id="repofile_icon" class="glyphicon glyphicon-folder-open">
+                </a>
+                </span>
+                <i>{{info.name}}.</i>
+              </div>
+
+              <div ng-if="info.type == 'file'">
+                <p>
+                  <a href="{{info.html_url}}">
+                    <span id="repofile_icon" class="glyphicon glyphicon-file">
+                  </a>
+                  </span>
+                  <i>{{info.name}}.</i>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div ng-if="!data">
+            <p>
+              <h3>
+                <strong>I'm sorry.., but this directory is empty..</strong>
+              </h3>
+            </p>
+          </div>
+        </div>
+        <div ng-if="!status">
+          <h3>Ups.., try again later please.</h3>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>
